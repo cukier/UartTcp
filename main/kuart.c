@@ -30,7 +30,7 @@ void uart_init(void *pvParameters) {
 
   uart_driver_install(UART_NUM_1, 1024 * 2, 0, 0, NULL, 0);
   uart_param_config(UART_NUM_1, &uart_config);
-  uart_set_pin(UART_NUM_1, 17, 16, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE);
+  uart_set_pin(CONFIG_BRIDGE_UART_PORT, CONFIG_BRIDGE_UART_TX_GPIO, CONFIG_BRIDGE_UART_RX_GPIO, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE);
 }
 
 void uart_rx_task(void *pvParameters) {

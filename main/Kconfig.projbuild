@@ -19,6 +19,18 @@ menu "Bridge Configuration"
         help
             The UART peripheral to use (0, 1, or 2).
 
+    config BRIDGE_UART_TX_GPIO
+        int "UART TX GPIO Pin"
+        default 17
+        help
+            GPIO number for the UART TX pin.
+
+    config BRIDGE_UART_RX_GPIO
+        int "UART RX GPIO Pin"
+        default 16
+        help
+            GPIO number for the UART RX pin.
+
     config BRIDGE_UART_BAUD
         int "UART Baud Rate"
         default 115200
