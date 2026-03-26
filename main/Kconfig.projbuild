@@ -1,0 +1,48 @@
+menu "Bridge Configuration"
+
+    config BRIDGE_WIFI_SSID
+        string "WiFi SSID"
+        default "myssid"
+        help
+            SSID of the AP to connect to.
+
+    config BRIDGE_WIFI_PASSWORD
+        string "WiFi Password"
+        default "mypassword"
+        help
+            Password of the AP to connect to.
+
+    config BRIDGE_UART_PORT
+        int "UART Port Number"
+        range 0 2
+        default 1
+        help
+            The UART peripheral to use (0, 1, or 2).
+
+    config BRIDGE_UART_BAUD
+        int "UART Baud Rate"
+        default 115200
+        help
+            The baud rate for the serial connection.
+
+    choice BRIDGE_UART_PARITY
+        prompt "UART Parity"
+        default BRIDGE_UART_PARITY_DISABLE
+        help
+            Select the parity mode for the UART connection.
+
+        config BRIDGE_UART_PARITY_DISABLE
+            bool "None"
+        config BRIDGE_UART_PARITY_EVEN
+            bool "Even"
+        config BRIDGE_UART_PARITY_ODD
+            bool "Odd"
+    endchoice
+
+    config BRIDGE_TCP_PORT
+        int "TCP Server Port"
+        default 3333
+        help
+            Port for the TCP server to listen on.
+
+endmenu
